@@ -1,0 +1,19 @@
+{
+  "name": "helsinki_fullstack_part3",
+  "version": "1.0.0",
+  "description": "phonebook backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markal84/helsinki_fullstack_part3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markal84/helsinki_fullstack_part3/issues"
+  },
+  "homepage": "https://github.com/markal84/helsinki_fullstack_part3#readme"
+}
