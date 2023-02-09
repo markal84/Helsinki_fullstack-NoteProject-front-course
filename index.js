@@ -5,11 +5,15 @@ const app = express();
 
 app.use(express.json());
 
-// create morgan middleware
-app.use(morgan("tiny"));
-
 const API_URL = "/api/persons";
 
+// create custom config morgan middleware
+morgan.token("body", (request, response) => JSON.stringify(request.body));
+app.use(
+  morgan(":method :url :status :response-time ms - :res[content-length] :body")
+);
+
+// app.use(morgan("tiny"));
 const generateId = () => {
   const random = persons.length > 0 ? Math.floor(Math.random() * 24) : 0;
   return Math.floor((Math.random() + random) * 3);
