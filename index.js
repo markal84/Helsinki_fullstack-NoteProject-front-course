@@ -1,7 +1,10 @@
 const express = require("express");
 const morgan = require("morgan");
+const { v4: uuidv4 } = require("uuid");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
@@ -14,10 +17,12 @@ app.use(
 );
 
 // app.use(morgan("tiny"));
+/*
 const generateId = () => {
   const random = persons.length > 0 ? Math.floor(Math.random() * 24) : 0;
   return Math.floor((Math.random() + random) * 3);
 };
+*/
 
 let persons = [
   {
@@ -98,7 +103,7 @@ app.post(API_URL, (request, response) => {
   }
 
   const person = {
-    id: generateId(),
+    id: uuidv4(),
     name: body.name,
     number: body.number,
   };
@@ -114,7 +119,7 @@ const unknownEndpoint = (request, response) => {
 
 app.use(unknownEndpoint);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
