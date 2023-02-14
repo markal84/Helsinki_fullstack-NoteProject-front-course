@@ -84,15 +84,6 @@ app.delete(`${API_URL}/:id`, (request, response, next) => {
 app.post(API_URL, (request, response, next) => {
   const body = request.body;
 
-  // check if name or number is missing
-  /*
-  if (body.name === undefined || body.number === undefined) {
-    return response.status(400).json({
-      error: "name or number missing",
-    });
-  }
-  */
-
   // check if there is person with the same name
   /*
   if (persons.some((person) => person.name === body.name)) {
